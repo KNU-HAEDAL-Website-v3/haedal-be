@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class SecretboardConfig(AppConfig):
-    name = "secretboard"
+    name = "apps.secretboard"
