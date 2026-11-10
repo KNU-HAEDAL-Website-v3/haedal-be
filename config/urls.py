@@ -23,5 +23,5 @@ urlpatterns = [
     path("accounts/", include("accounts.urls")),
     path("books/", include("books.urls")),
     path("loans/", include("loans.urls")),
-    # path("rendal/", include("rendal.urls")),
+
 ]

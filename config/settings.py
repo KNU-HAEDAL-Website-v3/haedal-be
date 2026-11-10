@@ -57,12 +57,6 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "apps.schedule",
-    "apps.contributing",
-    "apps.highlights",
-    "apps.home",
-    "apps.notice",
-    "apps.secretboard",
     "accounts",
     "books",
     "loans"
