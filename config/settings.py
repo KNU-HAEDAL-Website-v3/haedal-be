@@ -58,12 +58,14 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "corsheaders",
     "accounts",
     "books",
     "loans"
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -100,8 +102,17 @@ SPECTACULAR_SETTINGS = {
     "TITLE": "HAEDAL API",
     "DESCRIPTION": "HAEDAL 웹사이트 백엔드 API",
     "VERSION": "1.0.0",
-    "SERVE_INCLUDE_SCHEMA": False,  # Swagger UI 목록에 schema 엔드포인트 자체를 숨김
+    "SERVE_INCLUDE_SCHEMA": False,      # Swagger UI 목록에 schema 엔드포인트 자체를 숨김
+    "COMPONENT_SPLIT_REQUEST": True,    # 요청-응답 스키마 분리 → 타입 생성 정확
+    "SWAGGER_UI_SETTINGS": {
+        "persistAuthorization": True,   # 새로고침해도 입력한 인증 토큰 유지
+        "fitter": True,                 # 엔드포인트 검색창 표시
+    }
 }
+
+CORS_ALLOWED_ORIGINS = os.getenv(
+    "DJANGO_CORS_ORIGINS", "http://localhost:3000"
+).split(",")
 
 # Database
 # https://docs.djangoproject.com/en/6.1/ref/settings/#databases
