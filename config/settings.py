@@ -51,18 +51,13 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 
 INSTALLED_APPS = [
     "rest_framework",
+    "drf_spectacular",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "apps.schedule",
-    "apps.contributing",
-    "apps.highlights",
-    "apps.home",
-    "apps.notice",
-    "apps.secretboard",
     "accounts",
     "books",
     "loans"
@@ -97,6 +92,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "config.wsgi.application"
 
+REST_FRAMEWORK = {
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "HAEDAL API",
+    "DESCRIPTION": "HAEDAL 웹사이트 백엔드 API",
+    "VERSION": "1.0.0",
+    "SERVE_INCLUDE_SCHEMA": False,  # Swagger UI 목록에 schema 엔드포인트 자체를 숨김
+}
 
 # Database
 # https://docs.djangoproject.com/en/6.1/ref/settings/#databases
